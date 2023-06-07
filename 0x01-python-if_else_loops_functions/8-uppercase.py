@@ -7,7 +7,10 @@ def islower(c):
 
 # print all uppercae
 def uppercase(str):
+    tl = 0
+    ll = len(str)
     for i in str:
+        tl += 1
         upper = chr(ord(i) - 32)
-        print("{}".format(upper if islower(i) else i), end="")
-    print()
+        pform = upper if islower(i) else i
+        print("{}".format(pform), end="" if tl < ll else "\n")
