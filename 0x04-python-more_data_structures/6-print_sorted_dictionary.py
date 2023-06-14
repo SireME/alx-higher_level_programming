@@ -14,4 +14,4 @@ You are not allowed to import any module
 
 def print_sorted_dictionary(a_dictionary):
     sd_d = dict(sorted(a_dictionary.items()))
-    return [print("{}: {}".format(i, v)) for i, v in sd_d.items()]
+    [print("{}: {}".format(i, v)) for i, v in sd_d.items()]
