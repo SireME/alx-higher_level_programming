@@ -17,3 +17,4 @@ def best_score(a_dictionary):
     for i, v in a_dictionary.items():
         if largest_v == v:
             return i
+    return None
