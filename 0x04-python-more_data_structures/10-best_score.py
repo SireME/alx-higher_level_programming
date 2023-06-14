@@ -13,4 +13,7 @@ You are not allowed to import any module
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
-    return max(a_dictionary.keys())
+    largest_v = max(a_dictionary.values())
+    for i, v in a_dictionary.items():
+        if largest_v == v:
+            return i
