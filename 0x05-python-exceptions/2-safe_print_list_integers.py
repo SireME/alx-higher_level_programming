@@ -24,7 +24,7 @@ def safe_print_list_integers(my_list=[], x=0):
         try:
             print("{:d}".format(my_list[idx]), end="")
             printed += 1
-        except Exception:
+        except (ValueError, TypeError):
             pass
         idx += 1
     print()
