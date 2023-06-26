@@ -18,8 +18,8 @@ You are not allowed to use type()
 def safe_print_integer_err(value):
     try:
         print("{:d}".format(value))
-        return 1
+        return True
     except Exception as es:
         import sys
         print("Exception: {}".format(es), file=sys.stderr)
-        return 0
+        return False
