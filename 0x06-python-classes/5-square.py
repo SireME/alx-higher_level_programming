@@ -6,7 +6,7 @@ Write a class Square that defines a
 Private instance attribute: size:
 property def size(self): to retrieve it
 property setter def size(self, value): to set it:
-size must be an integer, otherwise raise a 
+size must be an integer, otherwise raise a
    TypeError exception with the message size must be an integer
 if size is less than 0, raise a ValueError
             exception with the message size must be >= 0
@@ -36,6 +36,7 @@ class Square:
           return:  area of a square
         """
         return (self.__size) ** 2
+
     def my_print(self):
         """print square to stdout using symbol#"""
         ssize = self.__size
@@ -43,7 +44,7 @@ class Square:
             print()
         else:
             for i in range(ssize):
-                for j in range( ssize):
+                for j in range(ssize):
                     print("#", end="")
                 print()
 
