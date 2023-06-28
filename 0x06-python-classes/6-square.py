@@ -49,7 +49,7 @@ class Square:
             for i in range(self.position[1]):
                 print()
             for j in range(ssize):
-                print("_" * self.position[0] + "#" * ssize)
+                print(" " * self.position[0] + "#" * ssize)
 
     @property
     def size(self):
