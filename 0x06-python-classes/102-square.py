@@ -35,18 +35,20 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
+    def __eq__(self, other):
+        return self.area() == other.area()
+
+    def __ne__(self, other):
+        return self.area() != other.area()
+
     def __lt__(self, other):
-        """Less than comparison"""
         return self.area() < other.area()
 
-    def __gt__(self, other):
-        """Greater than comparison"""
-        return self.area() > other.area()
-
     def __le__(self, other):
-        """Less than or equal to comparison"""
         return self.area() <= other.area()
 
+    def __gt__(self, other):
+        return self.area() > other.area()
+
     def __ge__(self, other):
-        """Greater than or equal to comparison"""
         return self.area() >= other.area()
