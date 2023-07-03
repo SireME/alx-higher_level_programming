@@ -28,6 +28,7 @@ class Rectangle:
     Define a rectangle by height and width
     """
     def __init__(self, width=0, height=0):
+        """ rectangle instantiation """
         self.width = width
         self.height = height
 
