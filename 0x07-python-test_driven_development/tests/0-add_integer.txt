@@ -1,0 +1,43 @@
+Add integer tests from the 0-add_integer.py file
+
+Import essential modules
+     >>> add_integer = __import__("0-add_integer").add_integer
+
+Use add_integer to run tests 
+
+>>> add_integer(5, 10)
+15
+
+>>> add_integer(7.5, 3)
+10
+
+>>> add_integer(2.5, 4.3)
+6
+
+>>> add_integer(9, 4.7)
+13
+
+>>> add_integer(20)
+118
+
+>>> add_integer("school", 5)
+Traceback (most recent call last):
+      ...
+TypeError: a must be an integer
+
+>>> add_integer(10, [3, 4])
+Traceback (most recent call last):
+     ...
+TypeError: b must be an integer
+
+>>> add_integer(1, 2)
+3
+
+>>> add_integer(100, -2)
+98
+
+>>> add_integer(2)
+100
+
+>>> add_integer(100.3, -2)
+98
