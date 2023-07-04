@@ -1,0 +1,72 @@
+Add text indentation tests for the 5-text_indentation.py module
+
+Import essential modules
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+Run tests:
+
+Test cases for text_indentation function
+
+Test 1: Empty text
+>>> text_indentation("")
+
+(No output expected)
+
+Test 2: Text without any special characters
+>>> text_indentation("This is a test")
+This is a test
+
+Test 3: Text with only one special character
+>>> text_indentation("Sentence one. Sentence two.")
+Sentence one.
+<BLANKLINE>
+Sentence two.
+<BLANKLINE>
+
+Test 4: Text with multiple special characters in a row
+>>> text_indentation("Hello... How are you??")
+Hello.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+?
+<BLANKLINE>
+
+Test 5: Text with leading and trailing whitespace
+>>> text_indentation("   Indentation test.   ")
+Indentation test.
+<BLANKLINE>
+
+Test 6: Text with special characters at the beginning and end
+>>> text_indentation(".Start and end?")
+.
+<BLANKLINE>
+Start and end?
+<BLANKLINE>
+
+Test 7: Text with special characters surrounded by whitespace
+>>> text_indentation("  Whitespace . Test  ")
+Whitespace .
+<BLANKLINE>
+Test
+
+Test 8: Text with multiple special characters in different positions
+>>> text_indentation("Sentence one. Another sentence? Yes, it is! And another: How are you?")
+Sentence one.
+<BLANKLINE>
+Another sentence?
+<BLANKLINE>
+Yes, it is! And another:
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+
+Test 9: Non-string input
+>>> text_indentation(123)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
