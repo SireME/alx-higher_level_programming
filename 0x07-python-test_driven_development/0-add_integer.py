@@ -12,6 +12,9 @@ You are not allowed to import any module
 
 
 def add_integer(a, b=98):
+    """
+    function to add two and return result
+    """
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):

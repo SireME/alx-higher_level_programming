@@ -1,0 +1,27 @@
+Add name tests for the say_my_name.py module
+
+Import essential modules
+    >>> say_my_name = __import__("3-say_my_name").say_my_name
+
+Run tests:
+
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+    >>> say_my_name("Jane")
+    My name is Jane 
+
+    >>> say_my_name(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Alice", 456)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name(789, True)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
