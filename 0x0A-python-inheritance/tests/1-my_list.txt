@@ -10,7 +10,13 @@ import class from file
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
 
+# print case with single input sorting
+>>> my_list = MyList([1])
+>>> my_list.print_sorted()
+[1]
+
 # print case with no sorting
+>>> my_list = MyList([3, 1, 4, 2, 5])
 >>> print(my_list)
 [3, 1, 4, 2, 5]
 
