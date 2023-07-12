@@ -60,4 +60,5 @@ class Student:
         Return:
                None
         """
-        self.__dict__ = json
+        for key, value in json.items():
+            self.__dict__[key] = value
