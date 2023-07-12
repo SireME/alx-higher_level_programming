@@ -14,14 +14,13 @@ def append_after(filename="", search_string="", new_string=""):
          search_string: string being searched
          new_string: new string to insert
     """
-    with open(filename, 'r+') as file:
+    with open(filename, 'r', encoding="utf-8") as fl:
         # store all file content as list of strings
-        lines = file.readlines()
+        lines = fl.readlines()
 
         # move cursor to the start of file
-        file.seek(0)
+    with open(filename, "w", encoding="utf-8") as fl1:
         for line in lines:
-            file.write(line)
+            fl1.write(line)
             if search_string in line:
-                file.write(new_string + '\n')
-        file.truncate()
+                fl1.write(new_string)
