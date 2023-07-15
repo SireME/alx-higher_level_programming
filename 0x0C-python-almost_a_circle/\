@@ -61,7 +61,7 @@ class Rectangle(Base):
         """y coordinate private getter"""
         return self.__y
 
-    @y.setter
+    @width.setter
     def y(self, value):
         """y coordinate private setter """
         if not isinstance(value, int):
@@ -80,7 +80,5 @@ class Rectangle(Base):
             print("#" * self.width + "\n", end="")
 
     def __str__(self):
-        """overide str method with Rectangle parameters"""
-        w = self.width
-        h = self.height
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {w}/{h}"
+        """overide str method"""
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.wdith}/{self.height}"
