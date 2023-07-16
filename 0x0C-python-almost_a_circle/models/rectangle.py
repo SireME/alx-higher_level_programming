@@ -81,17 +81,30 @@ class Rectangle(Base):
             print(" " * self.x, end="")
             print("#" * self.width + "\n", end="")
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """update instance attributes"""
-        self.id = args[0]
-        if len(args) >= 2:
-            self.width = args[1]
-        if len(args) >= 3:
-            self.height = args[2]
-        if len(args) >= 4:
-            self.x = args[3]
-        if len(args) == 5:
-            self.y = args[4]
+        if args and len(args) >= 1:
+            if len(args) >= 1:
+                self.id = args[0]
+            if len(args) >= 2:
+                self.width = args[1]
+            if len(args) >= 3:
+                self.height = args[2]
+            if len(args) >= 4:
+                self.x = args[3]
+            if len(args) == 5:
+                self.y = args[4]
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """dictionary representation of rectangle"""
+        dic_rep = {}
+        dic_rep["id"], dic_rep["width"] = self.id, self.width
+        dic_rep["height"], dic_rep["x"] = self.height, self.x
+        dic_rep["y"] = self.y
+        return dic_rep
 
     def __str__(self):
         """overide str method with Rectangle parameters"""
