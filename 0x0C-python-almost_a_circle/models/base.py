@@ -2,7 +2,8 @@
 """
 base module with base class
 """
-
+import csv
+import json
 
 class Base:
 
@@ -24,7 +25,6 @@ class Base:
         ld = list_dictionaries
         if ld is None or len(ld) == 0:
             return "[]"
-        import json
         return json.dumps(ld)
 
     @classmethod
@@ -43,7 +43,6 @@ class Base:
         ld = json_string
         if ld is None or len(ld) == 0:
             return []
-        import json
         return json.loads(ld)
 
     @classmethod
@@ -70,5 +69,63 @@ class Base:
             fileldic = cls.from_json_string(filecont)
             # return list of instances using create static method
             return [cls.create(**ins) for ins in fileldic]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save json str to csv file """
+        filename = cls.__name__ + ".csv"
+        objn = []
+        if list_objs is not None:
+            objn = [ins.to_dictionary() for ins in list_objs]
+            newobjn = []
+            rec = ["id", "width", "height", "x", "y"]
+            sq = ["id", "size", "x", "y"]
+            for dictxn in objn:
+                tempdic = {}
+                if filename == "Rectangle.csv":
+                    for key, value in dictxn.items():
+                        for j in rec:
+                            if key == j:
+                                tempdic[key] = value
+                                break
+                elif filename == "Square.csv":
+                    for key, value in dictxn.items():
+                        for j in sq:
+                            if key == j:
+                                tempdic[key] = value
+                                break
+                newobjn.append(tempdic)
+
+        with open(filename, "w", encoding="utf-8") as f:
+            header = 0
+            if newobjn:
+                for data in newobjn:
+                    writer = csv.DictWriter(f, fieldnames=data.keys())
+                    if header == 0:
+                        writer.writeheader()
+                    writer.writerow(data)
+                    header = 1
+            else:
+                f.write("")
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load and return instances from csv file
+        """
+        try:
+            filename = cls.__name__ + ".csv"
+            # read insatnce data from a json file containing list
+            # of dictionary values
+            list_dic = []
+            with open(filename, "r") as f:
+                reader = csv.DictReader(f)
+                for dictxn in reader:
+                    for key, value in dictxn.items():
+                        dictxn[key] = int(value)
+                    list_dic.append(dictxn)
+            # return list of instances using create static method
+            return [cls.create(**ins) for ins in list_dic]
         except FileNotFoundError:
             return []
