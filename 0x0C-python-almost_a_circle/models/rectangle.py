@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-rectangle module with base inheritance
+This rectangle module inherites from the base class and contains methods for
+computings regarding a dictionary object
 """
 from models.base import Base
 
@@ -8,7 +9,9 @@ from models.base import Base
 class Rectangle(Base):
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ initialise rectangle attributes"""
+        """ initialise rectangle attributes
+        and inherite as well as initialise from super class
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -17,12 +20,22 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """width private getter"""
+        """return width of rectangel private getter
+        Args:
+             None
+        Return:
+               width of rectangle
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """width setter """
+        """set the width of rectangle attribute width setter
+        Args:
+             value: width of rectangle
+        Return:
+               None
+        """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -31,12 +44,22 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """height private getter"""
+        """return width of rectangel private getter
+        Args:
+             None
+        Return:
+               width of rectangle
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """height setter """
+        """set the height of rectangle attribute height setter
+        Args:
+             value: value of rectangle
+        Return:
+               None
+        """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -45,12 +68,22 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """x coordinate private getter"""
+        """returning coordinate for x-axis private getter
+        Args:
+             None
+        Return:
+               x cordinate for rectangle plotting
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
-        """x coordinate private setter """
+        """x coordinate setting private setter
+        Args:
+             value: cordinate value
+        Return:
+               None
+        """
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -64,7 +97,12 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """y coordinate private setter """
+        """y coordinate setting private setter
+        Args:
+             value: cordinate value
+        Return:
+               None
+        """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -72,18 +110,36 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """ return area of rectangle"""
+        """ public method to compute the area of traingle
+        Args:
+             None
+        Return:
+               area of triangle
+        """
         return self.width * self.height
 
     def display(self):
-        """ print rectangle instance """
+        """ print rectangle instance with x and y coordinates
+        using # character
+        Args:
+             None
+        Return:
+               None
+        """
         print("\n" * self.y, end="")
         for i in range(0, self.height):
             print(" " * self.x, end="")
             print("#" * self.width + "\n", end="")
 
     def update(self, *args, **kwargs):
-        """update instance attributes"""
+        """update instance attributes using keyword and
+        none keyword arguments
+        Args:
+             args: non keyworded variadic list
+             kwargs: keyworded list of dictionary
+        Return:
+               None
+        """
         if args and len(args) >= 1:
             if len(args) >= 1:
                 self.id = args[0]
@@ -100,7 +156,12 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """dictionary representation of rectangle"""
+        """Return dictionary representation of rectangle
+        Args:
+             None
+        Return:
+               dictionary representing rectangle attributes
+        """
         dic_rep = {}
         dic_rep["id"], dic_rep["width"] = self.id, self.width
         dic_rep["height"], dic_rep["x"] = self.height, self.x
@@ -108,7 +169,12 @@ class Rectangle(Base):
         return dic_rep
 
     def __str__(self):
-        """overide str method with Rectangle parameters"""
+        """overide str method with Rectangle parameters
+        Args:
+             None
+        Return:
+               __str__ string representation of dictionary
+        """
         w = self.width
         h = self.height
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {w}/{h}"
