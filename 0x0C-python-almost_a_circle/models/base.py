@@ -4,6 +4,8 @@ base module with base class
 """
 import csv
 import json
+import turtle
+
 
 class Base:
 
@@ -129,3 +131,37 @@ class Base:
             return [cls.create(**ins) for ins in list_dic]
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ draw all instances rectangle and square"""
+        window = turtle.Screen()
+        turtle.speed(1)
+        # Draw rectangles
+        for rectangle in list_rectangles:
+            turtle.color("blue", "green")
+            turtle.begin_fill()
+            turtle.penup()
+            turtle.goto(rectangle.x, rectangle.y)
+            turtle.pendown()
+            turtle.forward(rectangle.width)
+            turtle.left(90)
+            turtle.forward(rectangle.height)
+            turtle.left(90)
+            turtle.forward(rectangle.width)
+            turtle.left(90)
+            turtle.forward(rectangle.height)
+            turtle.left(90)
+            turtle.end_fill()
+        # Draw squares
+        for square in list_squares:
+            turtle.color("blue", "pink")
+            turtle.begin_fill()
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            for j in range(4):
+                turtle.forward(square.size)
+                turtle.left(90)
+            turtle.end_fill()
+        turtle.done()
