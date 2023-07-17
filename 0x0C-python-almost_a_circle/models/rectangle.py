@@ -7,7 +7,8 @@ from models.base import Base
 
 
 class Rectangle(Base):
-
+    """ this class contains methods to carry out computations
+    regarding a dictionary"""
     def __init__(self, width, height, x=0, y=0, id=None):
         """ initialise rectangle attributes
         and inherite as well as initialise from super class
