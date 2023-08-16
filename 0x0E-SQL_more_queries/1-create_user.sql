@@ -4,10 +4,11 @@
 -- If the user user_0d_1 already exists, your script should not fail
 
 -- user creation
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
+CREATE USER
+     IF NOT EXISTS 'user_0d_1'@'localhost'
+     IDENTIFIED BY 'user_0d_1_pwd';
 
 -- user priviledges
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
-
--- optional flush for user reload
-FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES
+     ON *.*
+     TO 'user_0d_1'@'localhost';
