@@ -1,11 +1,11 @@
 #!/usr/bin/node
 // import Rectangle
-const Rectangle = require('./4-rectangle.js');
+const square = require('./5-square.js');
 
 // create square class and inherite from Recatngle
-class Square extends Rectangle {
+class Square extends square {
   constructor (size) {
-    super(size, size);
+    super(size);
   }
 
   charPrint (c) {
