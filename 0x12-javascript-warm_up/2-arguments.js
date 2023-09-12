@@ -2,6 +2,8 @@
 // determine if script contains argument or not
 if (process.argv.length < 3) {
   console.log('No argument');
-} else {
+} else if (process.argv.length === 3) {
   console.log('Argument found');
+} else {
+  console.log('Arguments found');
 }
