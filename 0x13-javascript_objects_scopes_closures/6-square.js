@@ -5,7 +5,7 @@ const square = require('./5-square.js');
 // create square class and inherite from Recatngle
 class Square extends square {
   constructor (size) {
-    super(size);
+    super(size, size);
   }
 
   charPrint (c) {
