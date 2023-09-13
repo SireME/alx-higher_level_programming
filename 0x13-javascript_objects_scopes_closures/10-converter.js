@@ -1,4 +1,4 @@
-#!.usr/bin/node
+#!/usr/bin/node
 
 // convert number from base 10 to another
 
