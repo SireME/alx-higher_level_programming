@@ -22,6 +22,3 @@ const concatenatedContent = fileAContent + fileBContent;
 
 // Write the concatenated content to fileC
 fs.writeFileSync(fileCPath, concatenatedContent);
-
-// completion message
-console.log('Concatenation complete. Check ' + fileCPath + ' for the result.');
