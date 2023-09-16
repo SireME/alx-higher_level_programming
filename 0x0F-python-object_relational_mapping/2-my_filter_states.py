@@ -30,7 +30,8 @@ if __name__ == "__main__":
         results = cc.fetchall()
         # display of exectution result
         for row in results:
-            print(row)
+            if row[1] == argv[4]:
+                print(row)
 
         # close cursor and database
         cc.close()
