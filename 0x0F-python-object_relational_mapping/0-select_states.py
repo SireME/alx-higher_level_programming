@@ -10,7 +10,8 @@ if __name__ == "__main__":
         get all rows from specific table
         note: table created from .sql script of similar name
         """
-        db = MySQLdb.connect(user=un, password=pwd, database=db_nm, port=3306)
+        db = MySQLdb.connect(host="localhost", user=un,
+                password=pwd, database=db_nm, port=3306, charset="utf8")
         cc = db.cursor()
         cc.execute("""
         SELECT *
