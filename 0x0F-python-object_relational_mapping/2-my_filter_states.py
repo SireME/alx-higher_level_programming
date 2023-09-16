@@ -24,12 +24,9 @@ if __name__ == "__main__":
         cc = db.cursor()
 
         # command execution
-        cc.execute("""
-        SELECT *
-        FROM states
-        WHERE states.name = %s
-        ORDER By states.id;
-        """, (state_name,))
+        sn = state_name
+        cc.execute("SELECT * FROM states WHERE name = '{}'\
+                ORDER By states.id;".format(sn))
 
         # display of exectution result
         for row in cc.fetchall():
