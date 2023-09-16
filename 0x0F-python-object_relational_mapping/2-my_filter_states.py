@@ -26,7 +26,7 @@ if __name__ == "__main__":
         # command execution
         sn = state_name
         cc.execute("SELECT * FROM states WHERE name = '{}'\
-                ORDER By states.id;".format(sn))
+                ORDER By id ASC;".format(sn))
 
         # display of exectution result
         for row in cc.fetchall():
