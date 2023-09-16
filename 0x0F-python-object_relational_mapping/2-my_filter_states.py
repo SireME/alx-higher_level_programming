@@ -27,9 +27,9 @@ if __name__ == "__main__":
         sn = state_name
         cc.execute("SELECT * FROM states WHERE name = '{}'\
                 ORDER By id ASC;".format(sn))
-
+        results = cc.fetchall()
         # display of exectution result
-        for row in cc.fetchall():
+        for row in results:
             print(row)
 
         # close cursor and database
