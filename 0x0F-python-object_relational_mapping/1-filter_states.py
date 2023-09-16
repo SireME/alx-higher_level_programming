@@ -27,7 +27,7 @@ if __name__ == "__main__":
         cc.execute("""
         SELECT *
         FROM states
-        WHERE states.name LIKE 'N%'
+        WHERE BINARY states.name LIKE 'N%'
         ORDER By states.id;
         """)
 
