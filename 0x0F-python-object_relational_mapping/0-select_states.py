@@ -14,7 +14,8 @@ if __name__ == "__main__":
         cc = db.cursor()
         cc.execute("""
         SELECT *
-        FROM states;
+        FROM states
+        ORDER By states.id;
         """)
         for row in cc.fetchall():
             print(row)
