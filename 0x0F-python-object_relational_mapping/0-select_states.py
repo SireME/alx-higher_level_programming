@@ -10,16 +10,30 @@ if __name__ == "__main__":
         get all rows from specific table
         note: table created from .sql script of similar name
         """
-        db = MySQLdb.connect(host="localhost", user=un,
-                password=pwd, database=db_nm, port=3306, charset="utf8")
+        # keyword arguments for connect
+        karg = {"host": "localhost", "user": un, "password": pwd}
+        karg["database"] = db_nm
+        karg["port"] = 3306
+        karg["charset"] = "utf8"
+
+        # connection to db
+        db = MySQLdb.connect(**karg)
+
+        # cursor creation
         cc = db.cursor()
+
+        # command execution
         cc.execute("""
         SELECT *
         FROM states
         ORDER By states.id;
         """)
+
+        # display of exectution result
         for row in cc.fetchall():
             print(row)
+
+        # close cursor and database
         cc.close()
         db.close()
 
