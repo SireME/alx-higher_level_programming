@@ -13,5 +13,5 @@ class State(Base):
     sqlalchemy table
     """
     __tablename__ = "state"
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     name = Column(String(128), nullable=False)
