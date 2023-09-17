@@ -22,5 +22,5 @@ if __name__ == "__main__":
     for state in result:
         # deleting each row at a time
         session.delete(state)
-        session.commit()
+    session.commit()
     session.close()
