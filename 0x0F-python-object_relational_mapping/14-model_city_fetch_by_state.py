@@ -7,6 +7,7 @@ from model_city import City
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from sqlalchemy.orm import relationship
 from sys import argv as av
 
 if __name__ == "__main__":
@@ -15,6 +16,9 @@ if __name__ == "__main__":
     engine = create_engine(db)
 
     Session = sessionmaker(bind=engine)
+    State.cities = relationship("City",
+                                order_by=City.id,
+                                back_populates="state")
     session = Session()
 
     Base.metadata.create_all(engine)
