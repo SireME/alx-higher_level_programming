@@ -17,3 +17,4 @@ if __name__ == "__main__":
     result = session.query(State).order_by(State.id).all()
     for instance in result:
         print(f'{instance.id}: {instance.name}')
+    session.close()
