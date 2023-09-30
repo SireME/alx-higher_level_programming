@@ -6,15 +6,16 @@ the email as a parameter, and displays the body of
 the response (decoded in utf-8)
 """
 
-import urllib.request
 import sys
+import urllib.request
 import urllib.parse
+
+
 if __name__ == "__main__":
     url = sys.argv[1]
-    value = {"email": sys.argv[2]}
-    data = urllib.parse.urlencode(value).encode("utf-8")
-    req = urllib.request.Request(url, data)
+    dic = {"email": sys.argv[2]}
+    data = urllib.parse.urlencode(dic).encode("ascii")
 
-    with urllib.request.urlopen(url) as request:
-        req = request.read()
-        print(f'Your email is: {req.decode("utf-8")}')
+    request = urllib.request.Request(url, data)
+    with urllib.request.urlopen(request) as response:
+        print(response.read().decode("utf-8"))
