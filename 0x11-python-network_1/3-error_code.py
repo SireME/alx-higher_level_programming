@@ -5,14 +5,15 @@ a request to the URL and displays the body of
 the response (decoded in utf-8).
 """
 
-import sys
-from urllib import request, error
-
 
 if __name__ == "__main__":
-    url = sys.argv[1]
+    import sys
+    from urllib import request, error
+
     try:
-        with request.urlopen(url) as req:
-            print(req.read().decode('UTF-8'))
-    except error.HTTPError as er:
-        print('Error code:', er.code)
+        url_to_fetch = sys.argv[1]
+        with request.urlopen(url_to_fetch) as response:
+            page_contents = response.read().decode('UTF-8')
+            print(page_contents)
+    except error.HTTPError as http_error:
+        print('Error code:', http_error.code)
