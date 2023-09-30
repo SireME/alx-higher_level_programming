@@ -11,5 +11,5 @@ if __name__ == '__main__':
     import requests
     from sys import argv
     payload = {'email': argv[2]}
-    response = requests.post(argv[1], data=payload)
-    print(response.text)
+    rsp = requests.post(argv[1], data=payload)
+    print(rsp.text)
