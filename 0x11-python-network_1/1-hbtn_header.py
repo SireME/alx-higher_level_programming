@@ -12,4 +12,4 @@ url = sys.argv[1]
 
 with urllib.request.urlopen(url) as request:
     response = request.headers
-    print(response["X-Request-Id"])
+    print(response.get("X-Request-Id"))
