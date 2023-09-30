@@ -11,5 +11,5 @@ if __name__ == '__main__':
     response = requests.get(url_to_fetch)
     response_text = response.text
     print("Body response:")
-    print("\t- Type: {}".format(type(response_text)))
-    print("\t- Content: {}".format(response_text))
+    print("\t- type: {}".format(type(response_text)))
+    print("\t- content: {}".format(response_text))
