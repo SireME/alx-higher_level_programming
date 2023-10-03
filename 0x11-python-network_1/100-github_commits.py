@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     for i in range(10):
         result = ""
-        result += r[i]["sha"]
+        result += r[i].get("sha")
         result += ": "
-        result += r[i]["commit"]["author"]["name"]
+        result += r[i].get("commit").get("author").get("name")
         print(result)
