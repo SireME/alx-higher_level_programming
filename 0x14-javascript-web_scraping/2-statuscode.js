@@ -3,7 +3,7 @@
 const request = require('request');
 const url = process.argv[2];
 
-// readding and printing content od a file
+// printing the status code of a request
 request(url, (error, response, body) => {
   if (error) {
     console.log(error);
