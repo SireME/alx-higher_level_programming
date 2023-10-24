@@ -8,7 +8,11 @@ let character;
 request(apiUrl, (error, response, body) => {
   if (!error && response.statusCode === 200) {
     const jsonObject = JSON.parse(body);
-    character = jsonObject.results[0].characters[15];
+    for (const url of jsonObject.results[0].characters) {
+      if (url === 'https://swapi-api.alx-tools.com/api/people/18/') {
+        character = url;
+      }
+    }
   }
 
   request(character, (error, response, body) => {
